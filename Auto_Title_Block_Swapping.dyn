@@ -1,0 +1,256 @@
+{
+  "Uuid": "a5d12782-e983-4b0e-897e-ccf1099d0fea",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Auto_Title_Block_Swapping",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 221,
+      "SelectedString": "Dornan Sheet Layout A2 - Landscape -  Template:Dornan Sheet Layout A2 - Landscape -  Template",
+      "NodeType": "ExtensionNode",
+      "Id": "c787718b48c94e818173269357de4d0b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7e2ee5ff04984320a2e6a0eee65f66c7",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.ByFamilyType@Revit.Elements.FamilyType",
+      "Id": "e78ed094103541f0836417750a0b7db6",
+      "Inputs": [
+        {
+          "Id": "14a06f91bf344d8ba459dcc555dd5432",
+          "Name": "familyType",
+          "Description": "Family Type. Also called Family Symbol.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "27a3332e342c452ab2dd0977b08776d6",
+          "Name": "FamilyInstance[]",
+          "Description": "FamilyInstance[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Obtain a collection of FamilyInstances from the Revit Document and use them in the Dynamo graph\n\nFamilyInstance.ByFamilyType (familyType: FamilyType): FamilyInstance[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "acbfb8d821524adc86b5f6c82b0d1162",
+      "Inputs": [
+        {
+          "Id": "377e105f35474434881c761ab2f3fa62",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "179d3913115d49cbbf252537e67fbb7e",
+          "Name": "parameterName",
+          "Description": "The name of the parameter to set.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "87b6ab70cc224c87af1354573a2015b4",
+          "Name": "value",
+          "Description": "The value.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f872c936f743428eb3089e2933c99f73",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 222,
+      "SelectedString": "Dornan Sheet Layout A2 - Landscape - Template:Dornan Sheet Layout A2 - Landscape - Template",
+      "NodeType": "ExtensionNode",
+      "Id": "e3b59d3c90ae4d62976abe497c536d80",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fd63ff9f1a954a54a389a73adf458d91",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Type",
+      "Id": "a849f0b4b7d94059b138e19ccff79a66",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b40573b1c6134a0bacea2f96c315521e",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7e2ee5ff04984320a2e6a0eee65f66c7",
+      "End": "14a06f91bf344d8ba459dcc555dd5432",
+      "Id": "784ef2335c194ea9b7c492fefd3f0ec5"
+    },
+    {
+      "Start": "27a3332e342c452ab2dd0977b08776d6",
+      "End": "377e105f35474434881c761ab2f3fa62",
+      "Id": "d4d0722a2c204f9e8e6176143a59bcf3"
+    },
+    {
+      "Start": "fd63ff9f1a954a54a389a73adf458d91",
+      "End": "87b6ab70cc224c87af1354573a2015b4",
+      "Id": "7e9d5aedb96246b4affb45fb7d94b258"
+    },
+    {
+      "Start": "b40573b1c6134a0bacea2f96c315521e",
+      "End": "179d3913115d49cbbf252537e67fbb7e",
+      "Id": "8a4dd7956fe840a7943992020c0e22ca"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "c787718b48c94e818173269357de4d0b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -132.80000000000013,
+        "Y": 482.4
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.ByFamilyType",
+        "Id": "e78ed094103541f0836417750a0b7db6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 445.60000000000048,
+        "Y": 298.39999999999975
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetParameterByName",
+        "Id": "acbfb8d821524adc86b5f6c82b0d1162",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 947.20000000000027,
+        "Y": 275.99999999999994
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "e3b59d3c90ae4d62976abe497c536d80",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -11.999999999999829,
+        "Y": 135.99999999999991
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "a849f0b4b7d94059b138e19ccff79a66",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 852.8,
+        "Y": 231.99999999999997
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}
